@@ -8,8 +8,13 @@ function App() {
 
   const signOutRedirect = () => {
     const clientId = "od1ca3on738fo0onip41qev8o";
-    const logoutUri = "https://main.d2cnyyr1gulo6q.amplifyapp.com";
+    const logoutUri = window.location.origin; // 현재 도메인 자동 감지
     const cognitoDomain = "https://ap-northeast-2skxje5knv.auth.ap-northeast-2.amazoncognito.com";
+    
+    // React 앱의 인증 상태도 함께 초기화
+    auth.removeUser(); // 또는 auth.signoutRedirect()
+    
+    // Cognito 완전 로그아웃
     window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
   };
 
@@ -97,10 +102,17 @@ function App() {
                 justifyContent: 'center',
                 fontSize: '20px'
               }}>
-                🛡️
+                <img 
+                  src="/mzc.png" 
+                  alt="로고"
+                  style={{
+                    width: '24px',
+                    height: '24px',
+                    objectFit: 'contain'
+                  }}
+                />
               </div>
               <div>
-                <h1 style={{ margin: 0, fontSize: '24px', fontWeight: '600' }}>콘텐츠 요약 시스템</h1>
                 <p style={{ margin: 0, fontSize: '14px', opacity: 0.9 }}>
                   안녕하세요, {auth.user?.profile.email}님!
                 </p>
@@ -172,7 +184,15 @@ function App() {
           margin: '0 auto 30px',
           fontSize: '36px'
         }}>
-          🛡️
+          <img 
+            src="/mzc.png" 
+            alt="로고"
+            style={{
+              width: '80px',
+              height: '80px',
+              objectFit: 'contain'
+            }}
+          />
         </div>
         
         {/* 제목 */}
@@ -182,7 +202,7 @@ function App() {
           fontWeight: '700',
           marginBottom: '10px' 
         }}>
-          콘텐츠 요약 시스템
+          콘텐츠 요약 매니저
         </h1>
         
         <p style={{ 
@@ -230,8 +250,8 @@ function App() {
           marginTop: '30px',
           lineHeight: '1.4'
         }}>
-          계정이 없으시다면 가입 신청 후<br />
-          관리자 승인을 받아주세요.
+          계정이 없으시다면<br />
+          가입 신청 후 사용해주세요.
         </p>
       </div>
     </div>

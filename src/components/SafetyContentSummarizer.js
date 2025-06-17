@@ -179,15 +179,15 @@ const SafetyContentSummarizer = () => {
           <div className="flex items-center justify-center">
             {/* Logo - 이미지로 교체 가능 */}
             <img 
-              src="/mzc.png" 
+              src="/jose.png" 
               alt="로고"
               className="w-8 h-8 mr-3"
             />
             {/* 아이콘을 사용하려면 아래 주석을 해제하고 위의 img 태그를 주석처리하세요 */}
             {/* <Shield className="w-8 h-8 text-indigo-600 mr-3" /> */}
-            <h1 className="text-3xl font-bold text-slate-800">콘텐츠 요약 서비스</h1>
+            <h1 className="text-3xl font-bold text-slate-800">콘텐츠 요약 매니저</h1>
           </div>
-          <p className="text-center text-slate-600 mt-2">MEGAZONECLOUD Media Professional Service</p>
+          <p className="text-center text-slate-600 mt-2">Media Professional Service</p>
         </div>
       </header>
 
